@@ -1,0 +1,30 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE fighters (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER,
+    gym TEXT);
+    
+INSERT INTO fighters (fullname, age, gym) VALUES ('Jon Jones', 35, 'Jackson MMA');
+INSERT INTO fighters (fullname, age, gym) VALUES ('Daniel Cormier', 43, 'American Kickboxing Academy');
+INSERT INTO fighters (fullname, age, gym) VALUES ('Anderson Silva', 47, 'Black House');
+INSERT INTO fighters (fullname, age, gym) VALUES ('Nick Diaz', 38, 'Ceasar Gracie Jiu-Jitsu');
+INSERT INTO fighters (fullname, age, gym) VALUES ('Georges ST-Pierre', 41, 'Renzo Gracie Academy');
+
+CREATE table UFC (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fighters_id INTEGER,
+    wins TEXT,
+    losses TEXT);
+    
+INSERT INTO UFC (fighters_id, wins, losses) VALUES (1, '26', '1');
+INSERT INTO UFC (fighters_id, wins, losses) VALUES (2, '22', '3');
+INSERT INTO UFC (fighters_id, wins, losses) VALUES (3, '34', '11'); 
+INSERT INTO UFC (fighters_id, wins, losses) VALUES (4, '26', '10');
+INSERT INTO UFC (fighters_id, wins, losses) VALUES (5, '26', '2');
+
+SELECT fighters.fullname,wins,losses 
+FROM fighters 
+JOIN UFC 
+ON fighters.id=UFC.fighters_id;
